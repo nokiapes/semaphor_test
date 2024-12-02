@@ -1,0 +1,15 @@
+- name: Gather system information
+  debug:
+    msg: |
+      System Information:
+      ------------------
+      Hostname: {{ ansible_hostname }}
+      OS: {{ ansible_distribution }}
+      Version: {{ ansible_distribution_version }}
+      Memory: {{ ansible_memtotal_mb }} MB
+      CPU cores: {{ ansible_processor_cores }}
+
+- name: Save system information to file
+  template:
+    src: report.j2
+    dest: "/tmp/system_report_{{ ansible_hostname }}.txt"
