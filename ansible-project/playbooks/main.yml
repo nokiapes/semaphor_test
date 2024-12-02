@@ -1,0 +1,6 @@
+- name: System Information Gathering
+  hosts: all
+  gather_facts: yes
+  
+  roles:
+    - system_info
